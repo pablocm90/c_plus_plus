@@ -1,15 +1,18 @@
 // Section 12
 // Challenge
 
-/* Write a C++ function named apply_all that expects two arrays of integers and their sizes and
-  dynamically allocates a new array of integers whose size is the product of the 2 array sizes
+/* Write a C++ function named apply_all that expects two arrays of integers and
+	their sizes and dynamically allocates a new array of integers whose size is the 
+	product of the 2 array sizes
   
-  The function should loop through the second array and multiplies each element across each element of array 1 and store the
+  The function should loop through the second array and multiplies
+ each element across each element of array 1 and store the
   product in the newly created array.
   
   The function should return a pointer to the newly allocated array.
   
-  You can also write a print function that expects a pointer to an array of integers and its size and display the
+  You can also write a print function that expects a pointer to an 
+	array of integers and its size and display the
   elements in the array.
     
   For example,
@@ -38,6 +41,8 @@
   
 #include <iostream>
 
+int *apply_all[](int[], size_t, int[], size_t);  
+
 using namespace std;
 
 int main() {
@@ -62,5 +67,18 @@ int main() {
     cout << endl;
 
     return 0;
+}
+
+int *apply_all(const int[] arr1, size_t size_1, const int[] arr2, size_t size_2) {
+	int *final_ptr {nullptr};
+	
+	final_ptr = new int[size_1 * size_2];
+	int counter {}
+	
+	while(size_1 > 0) {
+		while(size_2 > 0) {
+			
+		}
+	}
 }
 
