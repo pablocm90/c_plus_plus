@@ -12,7 +12,9 @@ protected:
     double int_rate;
 public:
     Savings_Account(std::string name = def_name, double balance =def_balance, double int_rate = def_int_rate);    
-    bool deposit(double amount);
+    bool deposit(double amount) override;
+    bool withdraw(double amount) override;
+		void print(std::ostream &os) const override;
     // Inherits the Account::withdraw method
 };
 

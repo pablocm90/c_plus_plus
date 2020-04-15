@@ -1,34 +1,27 @@
-/******************************************************************
- * Section 13 Challenge
- * Movie.cpp
- * 
- * Models a Movie with the following atttributes
- * 
- * std::string name - the name of the movie 
- * std::string rating - G, PG, PG-13, R
- * int watched - the number of times you've watched the movie
- * ***************************************************************/
-#include <iostream>
 #include "Movie.h"
+#include <string>
+#include <iostream>
 
-// Implemention of the construcor
-
-Movie::Movie(std::string name, std::string rating, int watched) 
-    : name(name), rating(rating), watched(watched)  {
+Movie::Movie(std::string name_val, std::string rating_val, int watched_val)
+	: name{name_val}, rating{rating_val}, watched{watched_val} {
+//	std::cout << "I create movie: " << name << std::endl;
+//	std::cout << "With name address: " << &name << std::endl;
 }
 
-//Implemention of the copy constructor
 Movie::Movie(const Movie &source) 
-    : Movie{source.name, source.rating, source.watched} {
-}
+	: Movie {source.name, source.rating, source.watched} {
+//		std::cout << "Created copy of : " << name << std::endl;
+//		std::cout << "With name address of : " << &name << std::endl;
+	}
 
-// Implementation of the destructor
 Movie::~Movie() {
+//	std::cout << "I destroy movie: " << name << std::endl;
 }
 
-// Implementation of the display method
-// should just insert the movie attributes to cout
+void Movie::display() {
+	std::cout << name << " - " << rating << " - " << watched << std::endl;
+}
 
-void Movie::display() const {
-    std::cout << name << ", " << rating <<  ", " << watched  <<   std::endl;
+void Movie::increment_watched() {
+	watched++;
 }

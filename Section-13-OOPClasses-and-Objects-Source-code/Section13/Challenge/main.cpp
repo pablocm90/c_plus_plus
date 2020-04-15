@@ -7,6 +7,8 @@
  * ***************************************************************/
 #include <iostream>
 #include "Movies.h"
+#include "Movie.h"
+#include <string>
 
 // Function prototypes
 void increment_watched(Movies &movies, std::string name);
@@ -40,7 +42,7 @@ void increment_watched(Movies &movies, std::string name) {
 *  displays a success message
 *  otherwise the movie was not added 
 *  because the name of the movie was already in movies
- * ***************************************************************/
+***************************************************************/
 void add_movie(Movies &movies, std::string name, std::string rating, int watched) {
     if (movies.add_movie(name,rating,watched)) {
         std::cout << name << " added" << std::endl;
@@ -50,7 +52,16 @@ void add_movie(Movies &movies, std::string name, std::string rating, int watched
 }
 
 int main() {
-    
+//	
+//	Movies list_of_movies {};
+//	list_of_movies.add_movie("The great gatsby", "PG-14", 3);
+//	list_of_movies.add_movie("The Wizard of OZ", "R", 10);
+//	list_of_movies.add_movie("The Wizard of OZ", "R", 10);
+//	
+//	
+//	list_of_movies.display_list();
+	
+//	===============================
     Movies my_movies;
     
     my_movies.display();

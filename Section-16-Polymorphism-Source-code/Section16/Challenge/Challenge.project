@@ -110,5 +110,7 @@
     <File Name="Account_Util.h"/>
     <File Name="Account_Util.cpp"/>
     <File Name="Description.txt"/>
+    <File Name="I_Printable.h"/>
+    <File Name="I_Printable.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

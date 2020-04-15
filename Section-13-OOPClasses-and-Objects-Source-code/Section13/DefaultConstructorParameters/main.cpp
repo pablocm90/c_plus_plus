@@ -16,20 +16,20 @@ public:
   //  Player() {}    // Will cause a compiler error
 };
 
-  
-Player::Player(std::string name_val, int health_val, int xp_val) 
+
+Player::Player(std::string name_val, int health_val, int xp_val)
     : name{name_val}, health{health_val}, xp{xp_val} {
             cout << "Three-args constructor" << endl;
 }
 
 
 int main() {
-    
+
     Player empty;
     Player frank {"Frank"};
     Player hero {"Hero", 100};
     Player villain {"Villain", 100, 55};
-    
+
     return 0;
 }
 

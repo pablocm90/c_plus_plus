@@ -90,3 +90,159 @@ std::istream &operator>>(std::istream &in, Mystring &rhs) {
     return in;
 }
 
+
+/**
+ * Member method style overloading 
+*/
+
+
+//Mystring Mystring::operator-() const 
+//{
+//	char *buff = new char[std::strlen(str) + 1];
+//	std::strcpy(buff, str);
+//	for(size_t i{0}; i<std::strlen(str); i++) {
+//		buff[i] = tolower(buff[i]);
+//	}
+//	Mystring temp {buff};
+//	delete [] buff;
+//	return temp;
+//}
+//
+//bool Mystring::operator==(const Mystring rhs) {
+//	return *str == *rhs.str;
+//}
+//
+//bool Mystring::operator!=(const Mystring rhs) {
+//	return !(*this == rhs);
+//}
+
+//
+//bool Mystring::operator<(const Mystring rhs) {
+//	return strcmp(str, rhs.str) < 0;
+//}
+//
+//bool Mystring::operator>(const Mystring rhs) {
+//	return strcmp(str, rhs.str) > 0;
+//}
+//
+//Mystring Mystring::operator+(const Mystring rhs) const{
+//	char *buff = new char[std::strlen(str) + std::strlen(rhs.str) + 1];
+//	std::strcpy(buff, str);
+//	std::strcat(buff, rhs.str);
+//	Mystring temp {buff};
+//	delete [] buff;
+//	return temp;
+//}
+//
+//Mystring Mystring::operator+=(const Mystring rhs){
+//	*this = *this + rhs;
+//	return *this;
+//}
+// 
+// 
+//Mystring Mystring::operator*(const size_t times) const {
+//	char *buff = new char[(std::strlen(str) * times) + 1];
+//	std::strcpy(buff, str);
+//	for(size_t i{1}; i<times; i++) {
+//		std::strcat(buff, str);
+//	}
+//	Mystring temp {buff};
+//	delete [] buff;
+//	return temp;
+//}
+//
+//Mystring Mystring::operator*=(const size_t times){
+//	*this = *this * times;
+//	return *this;
+//}
+//
+//Mystring Mystring::operator++(){
+//	for(size_t i{0}; i<std::strlen(str); i++) {
+//		(this)->str[i] = toupper((this)->str[i]);
+//	}
+//	return *this;
+//}
+//
+//Mystring Mystring::operator++(int){
+//	Mystring temp {*this};
+//	++(*this);
+//	return temp;
+//}
+
+
+/**
+  * Global method style overloading
+*/
+
+Mystring operator-(const Mystring &str_og)
+{
+	char *buff = new char[std::strlen(str_og.str) + 1];
+	std::strcpy(buff, str_og.str);
+	for(size_t i{0}; i<std::strlen(str_og.str); i++) {
+		buff[i] = tolower(buff[i]);
+	}
+	Mystring temp {buff};
+	delete [] buff;
+	return temp;
+}
+ 
+bool operator==(const Mystring &lhs, const Mystring &rhs) {
+	return *lhs.str == *rhs.str;
+}
+
+bool operator!=(const Mystring &lhs, const Mystring &rhs) {
+	return !(lhs == rhs);
+}
+
+bool operator<(const Mystring &lhs, const Mystring &rhs) {
+	return strcmp(lhs.str, rhs.str) < 0;
+}
+
+bool operator>(const Mystring &lhs, const Mystring &rhs) {
+	return strcmp(lhs.str, rhs.str) > 0;
+}
+
+Mystring operator+(const Mystring &lhs, const Mystring &rhs){
+	char *buff = new char[std::strlen(lhs.str) + std::strlen(rhs.str) + 1];
+	std::strcpy(buff, lhs.str);
+	std::strcat(buff, rhs.str);
+	Mystring temp {buff};
+	delete [] buff;
+	return temp;
+}
+
+Mystring operator+=(Mystring &lhs, const Mystring &rhs){
+	lhs = lhs + rhs;
+	
+	return lhs;
+}
+ 
+ 
+Mystring operator*(const Mystring &lhs, const size_t times) {
+	char *buff = new char[(std::strlen(lhs.str) * times) + 1];
+	std::strcpy(buff, lhs.str);
+	for(size_t i{1}; i<times; i++) {
+		std::strcat(buff, lhs.str);
+	}
+	Mystring temp {buff};
+	delete [] buff;
+	return temp;
+}
+
+Mystring operator*=(Mystring &lhs, const size_t times){
+	lhs = lhs * times;
+	return lhs;
+}
+
+Mystring operator++(Mystring &rhs){
+	for(size_t i{0}; i<std::strlen(rhs.str); i++) {
+		rhs.str[i] = toupper(rhs.str[i]);
+	}
+	return rhs;
+}
+
+Mystring operator++(Mystring &lhs, int){
+	Mystring temp {lhs};
+	++(lhs);
+	return temp;
+}
